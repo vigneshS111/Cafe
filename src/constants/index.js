@@ -24,7 +24,14 @@ export const navLinks = [
     },
    
   ];
-
+  
+  export const profile=[
+    {
+      title:"profile",
+      to:'/profile'
+    },
+   
+  ]
   export const deliveryService=[
     {
       image:coffee1,

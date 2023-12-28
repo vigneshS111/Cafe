@@ -20,7 +20,7 @@ const MainMenu = () => {
   }
 
   return (
-    <div className="sm:pt-[101px] pt-56 ">
+    <div>
       <div className="flex flex-row sm:justify-start sm:px-16 justify-center gap-5 bg-dark-coffee py-5  ">
         <div
           className={`flex justify-center items-center 

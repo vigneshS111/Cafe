@@ -9,7 +9,7 @@ const Search = () => {
   );
 
   return (
-    <div className="sm:pt-[101px] pt-56">
+    <div className=" pt-10">
       <div className="flex flex-col padding-x py-10 gap-5 ">
         <h3 className="font-poppins font-semibold text-[32px] tracking-wide text-black max-sm:mb-5">
           {filteredMenu?.length ? "Search results:" : "No results found"}
