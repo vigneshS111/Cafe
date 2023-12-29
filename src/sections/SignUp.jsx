@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import InputControl from "./InputControl";
-import { auth } from "../firebase.config.js";
+import { auth, firestore } from "../firebase.config.js"; // Assuming you have a 'firestore' object in your firebase config
+import { getFirestore, doc, setDoc } from "firebase/firestore"; // Add doc and setDoc to the imports
+import InputControl from "./InputControl.jsx";
 
 function Signup() {
   const navigate = useNavigate();
@@ -10,11 +11,12 @@ function Signup() {
     name: "",
     email: "",
     pass: "",
+    phoneNumber: "", // Add phone number field
   });
   const [errorMsg, setErrorMsg] = useState("");
   const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
 
-  const handleSubmission = () => {
+  const handleSubmission = async () => {
     if (!values.name || !values.email || !values.pass) {
       setErrorMsg("Fill all fields");
       return;
@@ -22,19 +24,36 @@ function Signup() {
     setErrorMsg("");
 
     setSubmitButtonDisabled(true);
-    createUserWithEmailAndPassword(auth, values.email, values.pass)
-      .then(async (res) => {
-        setSubmitButtonDisabled(false);
-        const user = res.user;
-        await updateProfile(user, {
-          displayName: values.name,
-        });
-        navigate("/");
-      })
-      .catch((err) => {
-        setSubmitButtonDisabled(false);
-        setErrorMsg(err.message);
+
+    // Initialize Firestore instance within the function
+    const db = getFirestore();
+
+    try {
+      const res = await createUserWithEmailAndPassword(
+        auth,
+        values.email,
+        values.pass
+      );
+      const user = res.user;
+
+      // Update user profile
+      await updateProfile(user, {
+        displayName: values.name,
       });
+
+      // Add additional info to Firestore
+      const userDocRef = doc(db, "users", user.uid); // replace "users" with your collection name
+      await setDoc(userDocRef, {
+        displayName: values.name,
+        email: values.email,
+        phoneNumber: values.phoneNumber,
+      });
+
+      navigate("/");
+    } catch (err) {
+      setSubmitButtonDisabled(false);
+      setErrorMsg(err.message);
+    }
   };
 
   return (
@@ -61,6 +80,13 @@ function Signup() {
           placeholder="Enter password"
           onChange={(event) =>
             setValues((prev) => ({ ...prev, pass: event.target.value }))
+          }
+        />
+        <InputControl
+          label="Phone Number"
+          placeholder="Enter phone number"
+          onChange={(event) =>
+            setValues((prev) => ({ ...prev, phoneNumber: event.target.value }))
           }
         />
 

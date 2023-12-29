@@ -1,10 +1,9 @@
-// Login.jsx
-
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase.config.js";
 import InputControl from "./InputControl.jsx";
+import { getFirestore, doc, getDoc } from "firebase/firestore"; // Import necessary Firestore functions
 
 const Login = () => {
   const navigate = useNavigate();
@@ -15,7 +14,7 @@ const Login = () => {
   const [errorMsg, setErrorMsg] = useState("");
   const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
 
-  const handleSubmission = () => {
+  const handleSubmission = async () => {
     if (!values.email || !values.pass) {
       setErrorMsg("Fill all fields");
       return;
@@ -23,15 +22,29 @@ const Login = () => {
     setErrorMsg("");
 
     setSubmitButtonDisabled(true);
-    signInWithEmailAndPassword(auth, values.email, values.pass)
-      .then(async (res) => {
-        setSubmitButtonDisabled(false);
-        navigate("/");
-      })
-      .catch((err) => {
-        setSubmitButtonDisabled(false);
-        setErrorMsg(err.message);
-      });
+
+    try {
+      const res = await signInWithEmailAndPassword(
+        auth,
+        values.email,
+        values.pass
+      );
+      const user = res.user;
+
+      // Retrieve user data from Firestore
+      const db = getFirestore();
+      const userDocRef = doc(db, "users", user.uid);
+      const userData = await getDoc(userDocRef);
+
+      // Now you can use userData.data() to access the complete user data in your app
+      console.log(userData.data());
+
+      setSubmitButtonDisabled(false);
+      navigate("/");
+    } catch (err) {
+      setSubmitButtonDisabled(false);
+      setErrorMsg(err.message);
+    }
   };
 
   return (

@@ -87,7 +87,7 @@ const Nav = ({ info, setInfo }) => {
             src={avatar}
             className="w-10 h-10 object-contain cursor-pointer "
             onClick={() => {
-              !info.email ? navigate("/login") : toggleBtn();
+              !info ? navigate("/login") : toggleBtn();
             }}
           />
           <div
