@@ -43,7 +43,24 @@ const Login = () => {
       navigate("/");
     } catch (err) {
       setSubmitButtonDisabled(false);
-      setErrorMsg(err.message);
+
+      switch (err.code) {
+        case "auth/user-not-found":
+          setErrorMsg("User not found. Please check your email or sign up.");
+          break;
+        case "auth/wrong-password":
+          setErrorMsg("Invalid password. Please try again.");
+          break;
+        case "auth/invalid-credential":
+          setErrorMsg(
+            "Invalid credentials. Please check your email and password."
+          );
+          break;
+
+        default:
+          setErrorMsg(err.message);
+          break;
+      }
     }
   };
 

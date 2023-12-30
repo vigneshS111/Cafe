@@ -8,6 +8,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase.config";
+import { useDispatch, useSelector } from "react-redux";
+import { showCart } from "../features/cart/cartSlice";
 const Nav = ({ info, setInfo }) => {
   //replace later
   const cartItems = [];
@@ -39,7 +41,8 @@ const Nav = ({ info, setInfo }) => {
   };
 
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
+  const { amount } = useSelector((store) => store.cart);
   return (
     <nav className="z-10 bg-coffee max-md:w-full md:gap-44 sm:px-20 px-8 py-6 flex md:justify-between justify-center items-center md:flex-row flex-col ">
       <Link to="/">
@@ -71,14 +74,14 @@ const Nav = ({ info, setInfo }) => {
         <SearchBar />
         <div
           className="relative flex items-center justify-center"
-          onClick={() => {}}
+          onClick={() => {
+            dispatch(showCart());
+          }}
         >
           <BsCart2 size={32} className="cursor-pointer" />{" "}
-          {cartItems && cartItems.length > 0 && (
+          {amount > 0 && (
             <div className=" absolute -top-2 -right-2 w-5 h-5 rounded-full bg-dark-coffee flex items-center justify-center">
-              <p className="text-sm text-primary font-bold">
-                {cartItems.length}
-              </p>
+              <p className="text-sm text-primary font-bold">{amount}</p>
             </div>
           )}
         </div>

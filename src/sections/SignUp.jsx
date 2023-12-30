@@ -53,6 +53,19 @@ function Signup() {
     } catch (err) {
       setSubmitButtonDisabled(false);
       setErrorMsg(err.message);
+      if (err.code === "auth/email-already-in-use") {
+        setErrorMsg(
+          "The email address is already in use. Please use a different email."
+        );
+      } else if (err.code === "auth/invalid-email") {
+        setErrorMsg("Invalid email address. Please enter a valid email.");
+      } else if (err.code === "auth/weak-password") {
+        setErrorMsg(
+          "The password is too weak. Please choose a stronger password."
+        );
+      } else {
+        setErrorMsg(err.message);
+      }
     }
   };
 

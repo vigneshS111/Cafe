@@ -11,10 +11,17 @@ import Login from "./sections/Login";
 import Profile from "./sections/Profile.jsx";
 import { auth, firestore } from "./firebase.config.js";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
-
+import CartContainer from "./sections/CartContainer.jsx";
+import { useDispatch, useSelector } from "react-redux";
+import { calculateTotals } from "./features/cart/cartSlice.js";
 const App = () => {
   const [info, setInfo] = useState(null);
+  const dispatch = useDispatch();
+  const { cartShow, cartItems } = useSelector((store) => store.cart);
 
+  useEffect(() => {
+    dispatch(calculateTotals());
+  }, [cartItems]);
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (user) => {
       if (user) {
@@ -59,7 +66,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<Profile info={info} />} />
       </Routes>
-
+      {cartShow && <CartContainer />}
       <footer className="flexStart">
         <div className="boxWidth">
           <Footer />
