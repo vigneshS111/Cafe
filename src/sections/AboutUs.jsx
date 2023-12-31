@@ -1,5 +1,6 @@
 import React from "react";
 import coffee3 from "../assets/coffee3.png";
+import { Link } from "react-router-dom";
 const AboutUs = () => {
   return (
     <div
@@ -20,9 +21,11 @@ const AboutUs = () => {
           product is made with a secret recipe and available in stores
           worldwide.
         </p>
-        <button className="text-primary bg-secondary rounded-3xl px-3 py-2 w-[142px]">
-          Get your coffee
-        </button>
+        <Link to="/mainMenu">
+          <button className="text-primary bg-secondary rounded-3xl px-3 py-2 w-[142px]">
+            Get your coffee
+          </button>
+        </Link>
       </div>
     </div>
   );

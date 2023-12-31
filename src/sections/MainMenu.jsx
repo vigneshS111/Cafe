@@ -16,7 +16,7 @@ const MainMenu = () => {
     menu_type = "Cold";
   } else {
     filteredMenu = menu;
-    menu_type = "menu";
+    menu_type = "Menu";
   }
 
   return (

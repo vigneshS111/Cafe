@@ -63,7 +63,7 @@ const Nav = ({ info, setInfo }) => {
           return (
             <li
               key={link.id}
-              className=" font-poppins font-medium cursor-pointer text-[16px] min-w-max"
+              className=" font-poppins font-medium cursor-pointer text-[16px] min-w-max hover:text-primary "
             >
               <a href={link.to}>{link.title}</a>
             </li>

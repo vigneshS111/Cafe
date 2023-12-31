@@ -32,7 +32,8 @@ export default {
         
       },
       boxShadow: {
-        '3xl': '0 10px 40px rgba(0, 0, 0, 0.1)'
+        '3xl': '0 10px 40px rgba(0, 0, 0, 0.1)',
+        '4xl':'10px 10px 17px 0px rgba(0,0,0,0.75)'
       },
       backgroundImage: {
         'coffee-cup':"url('../assets/coffeeCupBg.png')",

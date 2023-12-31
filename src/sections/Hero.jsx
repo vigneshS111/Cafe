@@ -15,7 +15,9 @@ const Hero = () => {
           the morning
         </p>
         <div className="flex flex-row gap-8 items-center mt-4">
-          <Button />
+          <Link to="/mainMenu">
+            <Button>Order now</Button>
+          </Link>
           <Link to="/mainMenu">
             <p className="text-primary font-bold text-[18px] cursor-pointer">
               More Menu

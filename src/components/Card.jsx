@@ -41,7 +41,10 @@ const Card = ({ item, desc }) => {
   const id = item.id;
   return (
     <div
-      className={`flex flex-col px-4 py-2 justify-center gap-4 md:w-[275px] w-[280px] md:h-[280px] h-[265px] shadow-3xl bg-slate-50 rounded-lg`}
+      data-aos="slide-up"
+      data-aos-duration="600"
+      data-aos-once="true"
+      className={`flex flex-col px-4 py-2 justify-center gap-4 md:w-[275px] w-[280px] md:h-[280px] h-[265px] shadow-3xl hover:shadow-4xl transition-shadow bg-slate-50 rounded-lg `}
     >
       <div>
         <img
