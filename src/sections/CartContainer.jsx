@@ -54,7 +54,7 @@ const CartContainer = () => {
                 return <CartItem key={item.id} {...item} />;
               })}
             </div>
-            <div className="fixed w-full md:w-[350px] bottom-0 bg-coffee  pt-10 pb-10 flex items-center flex-col">
+            <div className=" w-full md:w-[350px]  bg-coffee  pt-10 pb-10 flex items-center flex-col">
               <h4 className="capitalize flex justify-between items-center font-poppins font-semibold text-secondary  px-4 md:w-full  mb-4">
                 total{" "}
                 <span className="max-sm:ml-52">
