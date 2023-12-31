@@ -1,6 +1,6 @@
 import { IoMdAdd } from "react-icons/io";
 import { FiMinus } from "react-icons/fi";
-
+import { FaRupeeSign } from "react-icons/fa";
 import { removeItem, increase, decrease } from "../features/cart/cartSlice";
 import { useDispatch } from "react-redux";
 
@@ -11,7 +11,10 @@ const CartItem = ({ id, image, title, price, amount }) => {
       <img src={image} alt={title} />
       <div>
         <h4>{title}</h4>
-        <h4 className="item-price">${price}</h4>
+        <h4 className="item-price">
+          <FaRupeeSign className="inline h-4 pb-1" />
+          {price}
+        </h4>
         <button
           className="bg-dark-coffee px-2 text-sm h-[20px] rounded-md font-poppins font-medium text-secondary hover:shadow-md"
           onClick={() => {
