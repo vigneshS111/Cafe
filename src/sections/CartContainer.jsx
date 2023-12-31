@@ -66,6 +66,12 @@ const CartContainer = () => {
                 <Button checkOut={true}>Check Out</Button>
               </div>
             </div>
+            {isOrderConfirmed && (
+              <OrderConfirmationModal
+                onClose={handleCloseModal}
+                className="max-md:block hidden"
+              />
+            )}
           </>
         ) : (
           <div className="flex justify-center items-center h-[300px] flex-col gap-6 pt-32">
