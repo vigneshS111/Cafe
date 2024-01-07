@@ -8,7 +8,7 @@ import "swiper/css/free-mode";
 import { specialMenu } from "../constants/coffee_data";
 const SpecialMenu = () => {
   return (
-    <div className="max-md:padding">
+    <div className=" max-sm:px-4 max-sm:py-12">
       <div className="flex flex-col justify-start items-start padding-y sm:px-36 px-6 gap-12 w-full">
         <h3 className="font-poppins font-semibold text-[32px] tracking-wide text-black max-sm:mb-0">
           Special menu{" "}

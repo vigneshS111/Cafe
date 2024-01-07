@@ -9,7 +9,7 @@ import "swiper/css/free-mode";
 import { popular } from "../constants/coffee_data";
 const PopularNow2 = () => {
   return (
-    <div className="padding bg-coffee">
+    <div className="sm:px-16 px-4 sm:py-24 py-12 bg-coffee">
       <div className=" sm:m-auto max-sm:mt-44  sm:bg-dark-coffee flex flex-col flex-wrap sm:gap-14 justify-start padding-y  sm:px-10 px-6 sm:rounded-[60px] max-md:pb-0 ">
         <h3 className="font-poppins font-semibold text-[32px] pl-6 text-black max-sm:mb-5 tracking-wide">
           Popular{" "}
