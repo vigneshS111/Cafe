@@ -5,12 +5,12 @@ import { Link } from "react-router-dom";
 const Hero = () => {
   return (
     <div className=" flex justify-between md:flex-row flex-col  pt-10 sm:pb-28  py-12 flex-wrap sm:px-20 px-6 bg-coffee ">
-      <div className="flex flex-col flexStart gap-5 ">
-        <h2 className="font-poppins md:text-[48px] text-[44px] max-sm:w-[380px] font-semibold text-secondary md:leading-[72px] leading-[65px] text-wrap ">
+      <div className="flex flex-col flexStart gap-6 ">
+        <h2 className="font-poppins md:text-[48px] text-[41px] xl:text-[54px] max-sm:w-[380px] font-semibold text-secondary md:leading-[72px] leading-[65px] text-wrap ">
           Enjoy your <span className="text-primary">coffee </span>
           <br className="md:flex hidden" /> before your activity
         </h2>
-        <p className="font-poppins text-slate-gray md:w-[400px] w-[270px] text-wrap">
+        <p className="font-poppins text-slate-gray md:w-[400px] w-[270px] xl:text-[18px] text-wrap">
           Boost your productivity and build your mood with a glass of coffee in
           the morning
         </p>

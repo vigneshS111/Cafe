@@ -17,10 +17,10 @@ const PopularNow2 = () => {
             Now
           </span>
         </h3>
-        <div className="md:flex hidden md:flex-row flex-col justify-center gap-5 max-sm:m-auto ">
+        <div className="md:flex hidden md:flex-row flex-col justify-center gap-5 xl:gap-10 max-sm:m-auto ">
           {popular.slice(0, 3).map((item) => {
             return (
-              <Card key={item.id} width="275px" height="260px" item={item} />
+              <Card key={item.id} width="325px" height="310px" item={item} />
             );
           })}
         </div>
@@ -32,7 +32,7 @@ const PopularNow2 = () => {
         centeredSlides
         centeredSlidesBounds
         modules={[FreeMode]}
-        className="mt-2 max-md:block hidden"
+        className="mt-2 max-md:block hidden h-auto"
       >
         {popular.slice(0, 3).map((item) => (
           <SwiperSlide

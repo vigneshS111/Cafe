@@ -5,7 +5,7 @@ const AboutUs = () => {
   return (
     <div
       id="aboutUs"
-      className="flex sm:flex-row flex-col sm:px-24 px-8 py-14 justify-between md:gap-60 gap-10 w-full bg-coffee"
+      className="flex sm:flex-row flex-col sm:px-24 xl:px-28 px-8 py-14 justify-between md:gap-60 gap-10 w-full bg-coffee"
     >
       <img src={coffee3} className="object-contain sm:w-[370px] sm:h-[310px]" />
 

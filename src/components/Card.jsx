@@ -44,12 +44,12 @@ const Card = ({ item, desc }) => {
       data-aos="slide-up"
       data-aos-duration="600"
       data-aos-once="true"
-      className={`flex flex-col px-4 py-2 justify-center gap-4 md:w-[275px] w-[280px] md:h-[280px] h-[265px] shadow-3xl hover:shadow-4xl transition-shadow bg-slate-50 rounded-lg `}
+      className={`flex flex-col px-4 py-4  gap-5  md:w-[300px] w-[280px]  md:h-[325px] h-[295px] shadow-3xl hover:shadow-4xl transition-shadow bg-slate-50 rounded-lg `}
     >
       <div>
         <img
           src={item.image}
-          className="w-full h-[145px] object-cover rounded-md"
+          className="w-full h-[155px] object-cover rounded-md"
           alt={item.title}
         />
       </div>
@@ -58,7 +58,7 @@ const Card = ({ item, desc }) => {
         <p className="font-bold font-poppins text-[20px]">Rs {item.price}</p>
       </div>
       <div className="flex flex-row justify-between px-2">
-        <div className="flex flex-row gap-6">
+        <div className="flex items-center flex-row gap-6">
           {desc ? (
             <p className="font-poppins text-slate-gray text-wrap w-[160px] text-[12px] pb-3">
               {item.description}

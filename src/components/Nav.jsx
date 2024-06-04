@@ -46,15 +46,15 @@ const Nav = ({ info, setInfo }) => {
   return (
     <nav className="z-10 bg-coffee max-md:w-full md:gap-44 sm:px-20 px-8 py-6 flex md:justify-between justify-center items-center md:flex-row flex-col ">
       <Link to="/">
-        <div className="flex flex-row">
+        <div className="flex flex-row items-center text-xl">
           <img
             src={coffee}
             alt="logo"
-            style={{ width: 50, height: 28 }}
+            style={{ width: 50, height: 50 }}
             className="object-contain"
           />
-          <p className="font-satisfy font-semibold mr-2  text-primary">Cafe</p>
-          <p className="font-satisfy font-bold">Street</p>
+          <p className="font-satisfy font-semibold mr-2 xl:text-xl  text-primary">Cafe</p>
+          <p className="font-satisfy font-bold xl:text-xl">Street</p>
         </div>
       </Link>
 
@@ -63,7 +63,7 @@ const Nav = ({ info, setInfo }) => {
           return (
             <li
               key={link.id}
-              className=" font-poppins font-medium cursor-pointer text-[16px] min-w-max hover:text-primary "
+              className=" font-poppins font-medium cursor-pointer text-[18px] min-w-max hover:text-primary "
             >
               <a href={link.to}>{link.title}</a>
             </li>
@@ -78,7 +78,7 @@ const Nav = ({ info, setInfo }) => {
             dispatch(showCart());
           }}
         >
-          <BsCart2 size={32} className="cursor-pointer" />{" "}
+          <BsCart2 size={34} className="cursor-pointer" />{" "}
           {amount > 0 && (
             <div className=" absolute -top-2 -right-2 w-5 h-5 rounded-full bg-dark-coffee flex items-center justify-center">
               <p className="text-sm text-primary font-bold">{amount}</p>
@@ -88,7 +88,7 @@ const Nav = ({ info, setInfo }) => {
         <div className=" flex justify-end items-center">
           <img
             src={avatar}
-            className="w-10 h-10 object-contain cursor-pointer "
+            className="w-11 h-11 object-contain cursor-pointer "
             onClick={() => {
               !info ? navigate("/login") : toggleBtn();
             }}
