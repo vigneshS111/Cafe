@@ -25,7 +25,7 @@ const CartContainer = () => {
       <div
         data-aos="slide-left"
         data-aos-duration="600"
-        className="fixed top-0 right-0 z-[100] w-full md:w-[375px] h-screen bg-slate-50 flex flex-col overflow-y-scroll snap-y "
+        className="fixed top-0 right-0 z-[106] w-full md:w-[375px] h-screen bg-slate-50 flex flex-col overflow-y-scroll snap-y "
       >
         <div className="w-full flex items-center justify-between p-4 cursor-pointer">
           <MdOutlineKeyboardBackspace
