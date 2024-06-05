@@ -3,7 +3,7 @@ import { AiOutlineClose } from "react-icons/ai";
 
 const OrderConfirmationModal = ({ onClose }) => {
   return (
-    <div className="fixed top-0 left-0 w-screen h-screen bg-black bg-opacity-50 flex items-center justify-center">
+    <div className="fixed top-0 left-0 w-screen h-screen bg-black bg-opacity-50 flex items-center justify-center z-[120]">
       <div className="bg-white p-6 rounded-md text-center">
         <AiOutlineClose
           onClick={onClose}

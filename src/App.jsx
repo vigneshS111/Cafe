@@ -9,6 +9,7 @@ import MainMenu from "./sections/MainMenu";
 import Signup from "./sections/SignUp";
 import Login from "./sections/Login";
 import Profile from "./sections/Profile.jsx";
+import NotFound from "./components/NotFound.jsx";
 import { auth, firestore } from "./firebase.config.js";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
 import CartContainer from "./sections/CartContainer.jsx";
@@ -66,6 +67,7 @@ const App = () => {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<Profile info={info} />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       {cartShow && <CartContainer />}
       <footer className="flexStart">

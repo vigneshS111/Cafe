@@ -60,7 +60,7 @@ const Card = ({ item, desc }) => {
       <div className="flex flex-row justify-between px-2">
         <div className="flex items-center flex-row gap-6">
           {desc ? (
-            <p className="font-poppins text-slate-gray text-wrap w-[160px] text-[12px] pb-3">
+            <p className="font-poppins text-slate-gray text-wrap max-md:w-[160px] w-[175px] text-[12px] ">
               {item.description}
             </p>
           ) : (

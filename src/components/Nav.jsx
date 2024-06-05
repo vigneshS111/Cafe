@@ -4,7 +4,8 @@ import { navLinks, profile } from "../constants/index";
 import SearchBar from "./SearchBar";
 import { BsCart2 } from "react-icons/bs";
 import avatar from "../assets/avatar.png";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Link from "./Link";
 import { AiOutlineClose } from "react-icons/ai";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase.config";
@@ -53,7 +54,9 @@ const Nav = ({ info, setInfo }) => {
             style={{ width: 50, height: 50 }}
             className="object-contain"
           />
-          <p className="font-satisfy font-semibold mr-2 xl:text-xl  text-primary">Cafe</p>
+          <p className="font-satisfy font-semibold mr-2 xl:text-xl  text-primary">
+            Cafe
+          </p>
           <p className="font-satisfy font-bold xl:text-xl">Street</p>
         </div>
       </Link>
@@ -65,7 +68,8 @@ const Nav = ({ info, setInfo }) => {
               key={link.id}
               className=" font-poppins font-medium cursor-pointer text-[18px] min-w-max hover:text-primary "
             >
-              <a href={link.to}>{link.title}</a>
+              {/* <a href={link.to}>{link.title}</a> */}
+              <Link to={link.to}>{link.title}</Link>
             </li>
           );
         })}
